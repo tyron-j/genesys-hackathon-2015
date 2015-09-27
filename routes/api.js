@@ -3,15 +3,19 @@ var app    = require('../app.js');
 var socket = require('../socket.js').socket;
 var views = require('./views.js');
 var loki = require("lokijs");
+var meaningCloudApiKey = '6093768d2179b8842f4f84f5f4a4f768';
+
 
 // db init
 var db = new loki('loki.json');
 var users = db.addCollection('users');
 
+// db mock data
 users.insert({
 	number: "+12269899298", 
 	location: "Toronto, Ontario", 
 	name:'Donald Trump',
+	messages:[],
 	calls: [
 		{
 			agent: "Chuang Li",
@@ -49,6 +53,7 @@ users.insert({
 	number: "+15197215399", 
 	location: "Vancouver, British Columbia", 
 	name:'Barack Obama',
+	messages:[],
 	calls: [
 		{
 			agent: "Tyron Jung",
@@ -153,6 +158,10 @@ var api = module.exports = {
 		console.log(lastCall);
 		res.json(lastCall);
 		}
+	},
+	
+	leaveMessage: function(req, res) {
+		res.render(req.body);
 	}
 };
 
@@ -161,6 +170,7 @@ var api = module.exports = {
 app.get('/api/updateprofile', api.updateProfile);
 app.get('/api/changeclient', api.changeClient);
 app.get('/api/getlast', api.getLast);
+app.get('/api/leavemessage', api.leaveMessage);
 
 // refresh fix; DON'T WRITE BEYOND THIS
 app.get('*', views.index);
