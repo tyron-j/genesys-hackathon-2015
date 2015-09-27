@@ -61,7 +61,12 @@
 			| Notes About Client
 		.note-container
 			//- repeat notes
-			.note(ng-repeat="")
+			.note(ng-repeat="note in [1, 2, 3]")
+				| note
+		.note-writer
+			textarea
+			.add-note-button
+				| Add Note
 	.client-control-panel-widget
 		.header
 			| Follow-Up Message to Client

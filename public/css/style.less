@@ -273,12 +273,63 @@ body {
             .set-dimensions(612.5px, 650px);
             
             right: 0;
+            padding: 0;
+            padding-top: 75px !important;
 
             & > .note-container {
-                margin-top: 75px;
+                .set-dimensions(100%, 337.5px);
+
+                overflow: auto;
+                padding: 25px;
+                padding-top: 10px;
+                padding-bottom: 10px;
 
                 & > .note {
-                    //
+                    .set-dimensions(100%, 50px);
+
+                    line-height: 50px;
+                    font-size: 15px;
+                    word-spacing: pre-wrap;
+                    border-bottom: 1px solid @belize-hole;
+                }
+            }
+
+            & > .note-writer {
+                .set-dimensions(100%, 237.5px);
+
+                padding: 25px;
+
+                & > textarea {
+                    .set-dimensions(100%, 150px);
+
+                    background-color: fade(black, 25%);
+                    border-radius: 0;
+
+                    border: none;
+                    color: white;
+                    font-size: 15px;
+                    padding: 25px;
+                    resize: none;
+                    line-height: 20px;
+                }
+
+                & > .add-note-button {
+                    .set-dimensions(250px, 37.5px);
+
+                    background-color: @belize-hole;
+
+                    right: 25px;
+                    bottom: 25px;
+                    position: absolute;
+
+                    font-size: 20px;
+                    line-height: 37.5px;
+                    text-align: center;
+
+                    &:hover {
+                        cursor: pointer;
+                        background-color: @peter-river;
+                    }
                 }
             }
         }
