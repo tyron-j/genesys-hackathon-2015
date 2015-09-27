@@ -15,6 +15,7 @@ users.insert({
 	location: "Toronto, Ontario", 
 	name:'Donald Trump',
 	messages:[],
+	notes:[],
 	calls: [
 		{
 			agent: "Chuang Li",
@@ -53,6 +54,7 @@ users.insert({
 	location: "Vancouver, British Columbia", 
 	name:'Barack Obama',
 	messages:[],
+	notes:[],
 	calls: [
 		{
 			agent: "Tyron Jung",
@@ -210,7 +212,19 @@ var api = module.exports = {
 			var user = users.find({number: number})[0];
 			user.messages = [];
 			console.log(users.find({number: number})[0]);
-			res.sendStatus(200);
+		}
+	},
+	
+	leaveNote: function(req, res){
+		var number = req.query.number.replace(' ', '+');
+		console.log(number);
+		var resultSet = users.find({number: number});
+		if (resultSet.length == 0){
+		
+		} else {
+			var user = users.find({number: number})[0];
+			user.notes.push(req.query.note);
+			console.log(users.find({number: number})[0]);
 		}
 	}
 };
@@ -223,6 +237,7 @@ app.get('/api/getlast', api.getLast);
 app.get('/api/getmessages', api.getMessages);
 app.get('/api/deletemessages', api.deleteMessages);
 app.get('/api/leavemessage', api.leaveMessage);
+app.get('/api/leavenote', api.leaveNote);
 
 // refresh fix; DON'T WRITE BEYOND THIS
 app.get('*', views.index);
