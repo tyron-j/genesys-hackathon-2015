@@ -66,8 +66,8 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 
 		$scope.avg_duration = "60";
 
-		$scope.firstname = "Tyron";
-		$scope.lastname = "Jiang";
+		$scope.firstname = "Hilary";
+		$scope.lastname = "Clinton";
 		$scope.number = "+15197215399";
 		$scope.location = "Toronto, Canada";
 
@@ -77,7 +77,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 				"agent" : "Abigail",
 				"duration" : 20000,
 				"timestamp" : "saturday",
-				"notes" : ["Call 1---This customer is awesome", "nevermind he is so bad"]
+				"notes" : ["[Call 1] This customer is awesome", "[Call 2] Never mind she's terrible"]
 			},
 			{
 				"id": 2,
@@ -103,7 +103,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 		];
 		$scope.sortOrder = "id";
 
-		$scope.paths = "Help, Me, Please, Man".split(',');
+		$scope.paths = "This, Is, An, Example".split(',');
 
 		$scope.notes = $scope.callList[0].notes;
 		$scope.showNotes = function(id) {
