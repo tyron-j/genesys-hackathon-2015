@@ -7,7 +7,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 
 		function makeid(size, length)
 		{
-			var textx = [];
+			var texts = [];
 			var text = "";
 			var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 			for (var j=0; j < size; j++) {
