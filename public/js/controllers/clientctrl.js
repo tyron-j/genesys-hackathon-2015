@@ -45,13 +45,10 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 
 		socket.emit('agentLogin', {name: "Tyron Jung", number: "+12269299042"});
 
-		$scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-		$scope.series = ['Series A', 'Series B'];
+		$scope.labels = ['1', '2', '3', '4'];
+		$scope.series = ['Series A'];
 
-		$scope.data = [
-			[65, 59, 80, 81, 56, 55, 40],
-			[28, 48, 40, 19, 86, 27, 90]
-		];
+		$scope.data = [[65, 59, 80, 81]];
 
 		$scope.avg_duration = "20 min 29 s";
 
@@ -154,11 +151,17 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			// initiate call duration data
 			$scope.labels = [];
 			$scope.data = [];
+			var durations = [];
+			var durations_total = 0;
 			user.calls.forEach(function(call, i) {
 				$scope.labels.push(call.i);
-				$scope.data.push(call.agentduration/1000);
+				durations.push(call.agentduration/1000);
+				durations_total += call.agentduration/1000;
 			});
+			$scope.data.push(durations);
 			$scope.series = ['Call Duration'];
+			$scope.avg_duration = durations_total/user.calls.length;
+
 
 		});
 	}
