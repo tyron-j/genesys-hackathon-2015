@@ -34,6 +34,8 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 		];
 		$scope.sortOrder = "id";
 
-		// socket logic
+		socketSvc.socket.on('clientChange', function (res) {
+			console.log(res);
+		});
 	}
 ]);
