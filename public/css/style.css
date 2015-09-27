@@ -24,9 +24,20 @@
     overflow: scroll;
 }
 
+.call-list ul {
+    margin: 0px;
+}
+
 .call-list {
     background-color: lightgreen;
     height: 100%;
+}
+
+.call-list li {
+    list-style-type: none;
+    padding: 10px;
+    margin: 2px;
+    box-shadow: rgb(136, 136, 136) 2px 2px 2px;
 }
 
 .most-recent {
