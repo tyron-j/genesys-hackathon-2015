@@ -126,11 +126,9 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 
 		$scope.sendVoiceMessage = function() {
 			var req = {
-				method: 'POST',
-				url: "/api/leavemessage",
+				method: 'GET',
+				url: "/api/leavemessage?number="+$scope.number+"&message="+$scope.message,
 				data: {
-					name: $scope.number,
-					message: $scope.message
 				}
 			}
 			$http(req)
