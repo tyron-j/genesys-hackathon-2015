@@ -42,11 +42,11 @@ socket.on('connection', function (_socket) {
 // api logic
 var api = module.exports = {
 	updateProfile: function (req, res) {
-		console.log(parseInt(req.query.menustarttime));
+		/*console.log(parseInt(req.query.menustarttime));
 		console.log(parseInt(req.query.menuendtime));
 		var menuDuration = parseInt(req.query.menuendtime) - parseInt(req.query.menustarttime);
 		var agentDuration = parseInt(req.query.agentendtime) - parseInt(req.query.menuendtime);
-		
+		*/
 		var number = req.query.number.replace(' ', '+');
 		console.log("path: " + req.query.path, "number: " + number);
 		var resultSet = users.find({number: number});
@@ -56,8 +56,8 @@ var api = module.exports = {
 			var user = resultSet[0];
 			console.log(user);
 			user.calls.push({
-				menuduration: menuDuration,
-				agentduration: agentDuration,
+				menuduration: req.query.menuendtime,
+				agentduration: req.query.menustarttime,
 				path: req.query.path});
 			console.log(users.find({number: number})[0]);
 		}
