@@ -3,8 +3,7 @@ var app    = require('../app.js');
 var socket = require('../socket.js').socket;
 var views = require('./views.js');
 var loki = require("lokijs");
-var meaningCloudApiKey = '6093768d2179b8842f4f84f5f4a4f768';
-
+var request = require("request");
 
 // db init
 var db = new loki('loki.json');
@@ -161,7 +160,58 @@ var api = module.exports = {
 	},
 	
 	leaveMessage: function(req, res) {
-		res.render(req.body);
+		console.log(req.query.number);
+		var number = req.query.number.replace(' ', '+');
+		request({
+			uri: "http://api.meaningcloud.com/sentiment-2.0?key=6093768d2179b8842f4f84f5f4a4f768&of=json&txt=" + encodeURIComponent(req.query.message) + "&model=general_en",
+			method: "POST",
+			timeout: 10000,
+			followRedirect: true,
+			maxRedirects: 10
+			}, function(err, response, body){
+			if (err) { console.log(err); return; }
+			var meaningCloud = JSON.parse(response.body);
+			var sentiment = meaningCloud.sentence_list[0].score_tag;
+			var confidence = meaningCloud.sentence_list[0].confidence;
+			console.log(confidence);
+			console.log(sentiment);
+			if (confidence > 75 && (sentiment == "N" || sentiment == "N+")){
+				res.json({status: "failed", reason: "too negative"});
+			} else {
+				var user = users.find({number: number})[0];
+				user.messages.push(req.query.message);
+				console.log(user);
+				res.json({status: "success", reason: "approved"});
+			}
+			}
+		); 
+	},
+	
+	getMessages: function(req, res){
+		var number = req.query.number.replace(' ', '+');
+		console.log(number);
+		var resultSet = users.find({number: number});
+		if (resultSet.length == 0){
+		
+		} else {
+			var messages = users.find({number: number})[0].messages;
+			console.log()
+			console.log(lastCall);
+			res.json({messages: messages});
+		}
+	},
+	
+	deleteMessages: function(req, res){
+		var number = req.query.number.replace(' ', '+');
+		console.log(number);
+		var resultSet = users.find({number: number});
+		if (resultSet.length == 0){
+		
+		} else {
+			var messages = users.find({number: number})[0].messages;
+			var messages = [];
+			res.sendStatus(200);
+		}
 	}
 };
 
@@ -170,6 +220,8 @@ var api = module.exports = {
 app.get('/api/updateprofile', api.updateProfile);
 app.get('/api/changeclient', api.changeClient);
 app.get('/api/getlast', api.getLast);
+app.get('/api/getmessages', api.getMessages);
+app.get('/api/deletemessages', api.deleteMessages);
 app.get('/api/leavemessage', api.leaveMessage);
 
 // refresh fix; DON'T WRITE BEYOND THIS
