@@ -116,7 +116,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 		$scope.sendSMS = function() {
 			var req = {
 				method: 'POST',
-				url: "http://69.204.255.92/api/text/send?to=" + $scope.number + "&message=" + $scope.msg,
+				url: "http://69.204.255.92/api/text/send?to=" + $scope.number + "&msg=" + $scope.msg,
 				data: { }
 			}
 			$http(req).
