@@ -95,7 +95,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			$scope.location = user.location;
 			$scope.callList = [];
 			user.calls.forEach(function(call, i) {
-				callList.push({
+				$scope.callList.push({
 					"id" : i,
 					"agent": fakenames[i],
 					"notes": makeid(3, 123)
