@@ -71,6 +71,20 @@ body {
   right: 0;
   white-space: pre-wrap;
 }
+.client-profile > .logo {
+  width: 500px;
+  height: 50px;
+  position: absolute;
+  text-align: center;
+  font-size: 25px;
+  line-height: 50px;
+  right: -450px;
+  top: 0;
+  z-index: -1;
+}
+.client-profile > .logo > i {
+  font-size: 25px;
+}
 .client-block-path {
   -webkit-box-shadow: 0 0 15px 0 black;
   -moz-box-shadow: 0 0 15px 0 black;
