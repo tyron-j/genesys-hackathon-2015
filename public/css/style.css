@@ -29,6 +29,7 @@
 }
 
 .message {
+    padding:10px;
     background-color: lightgoldenrodyellow;
     overflow: scroll;
 }
@@ -38,6 +39,7 @@
 }
 
 .call-list {
+    padding:10px;
     background-color: lightgreen;
 }
 

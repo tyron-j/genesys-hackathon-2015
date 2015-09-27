@@ -14,7 +14,8 @@
 			button.button-primary Submit
 
 	.columns.three
-		.row.call-list &nbsp;
+		.row.call-list
+			label Call List
 			ul(ng-repeat="call in callList")
 				li(ng-click="showNotes(call.id)")
 					.call {{call.id}} {{call.agent}}
@@ -25,5 +26,6 @@
 		.row.most-frequent
 			label Most Frequent Call
 		.row.notes
+			label Notes
 			ui(ng-repeat="note in notes")
 				li {{note}}
