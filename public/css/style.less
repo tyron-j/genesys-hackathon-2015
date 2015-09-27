@@ -1,0 +1,261 @@
+// hr {
+//     margin: 0 0;
+// }
+
+// .three.columns {
+//     width: 24%;
+// }
+
+// .six.columns {
+//     width: 50%;
+// }
+
+// .column, .columns {
+//     margin-left: 1%;
+// }
+
+// .row {
+//     margin-bottom: 2px;
+//     border: 1px solid;
+//     box-shadow: rgb(136, 136, 136) 1px 1px 1px;
+// }
+
+// .content-wrapper {
+//     padding:5px;
+// }
+
+// .profile {
+//     padding:10px;
+//     background-color: lightcoral;
+// }
+
+// .profile p {
+//     margin : 0 0;
+// }
+
+// .call-duration {
+//     padding:10px;
+//     background-color: lightcyan;
+// }
+
+// .message {
+//     padding:10px;
+//     background-color: lightgoldenrodyellow;
+// }
+
+// .call-list ul {
+//     margin: 0px;
+// }
+
+// .call-list {
+//     padding:10px;
+//     background-color: lightgreen;
+// }
+
+// .call-list li {
+//     list-style-type: none;
+//     padding: 10px;
+//     margin: 2px;
+//     box-shadow: rgb(136, 136, 136) 2px 2px 2px;
+// }
+
+// .most-recent {
+//     background-color: lightpink;
+//     height: 33%;
+// }
+
+// .most-frequent {
+//     background-color: lightsteelblue;
+//     height: 33%;
+// }
+
+// .notes {
+//     background-color: lightslategrey;
+//     height: 30%;
+// }
+
+// .notes li {
+//     list-style-type: none;
+//     padding: 10px;
+//     margin: 2px;
+// }
+
+@belize-hole: #2980b9;
+@midnight-blue: #2c3e50;
+@wet-asphalt: #34495e;
+
+.box-shadow() {
+    -webkit-box-shadow: 0 0 15px 0 black;
+    -moz-box-shadow: 0 0 15px 0 black;
+    box-shadow: 0 0 15px 0 black;
+}
+
+.widget {
+    .box-shadow();
+    background-color: @wet-asphalt;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.set-dimensions(@width, @height: @width) {
+    width: @width;
+    height: @height;
+}
+
+* {
+    box-sizing: border-box;
+    color: white;
+    font-size: 0;
+}
+
+body {
+    background-color: @midnight-blue;
+}
+
+.client-profile {
+    .widget;
+    .set-dimensions(600px, 200px);
+
+    position: relative;
+
+    & > .client-picture {
+        background: url('png/client.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: @belize-hole;
+
+        border: 15px solid @belize-hole;
+        display: inline-block;
+
+        .set-dimensions(200px);
+    }
+
+    & > .client-name {
+        .set-dimensions(400px, 100px);
+
+        line-height: 100px;
+        text-align: center;
+        position: absolute;
+        font-size: 50px;
+
+        top: 0;
+        right: 0;
+    }
+
+    & > .client-location {
+        .set-dimensions(400px, 100px);
+
+        line-height: 100px;
+        text-align: center;
+        position: absolute;
+        font-size: 25px;
+
+        bottom: 0;
+        right: 0;
+
+        white-space: pre-wrap;
+    }
+}
+
+.client-block-path {
+    .widget;
+    .set-dimensions(300px, 100%);
+
+    position: fixed;
+    margin: 0;
+    top: 0;
+    left: 0;
+
+    & > .call-block {
+        .set-dimensions(200px);
+
+        background-color: @belize-hole;
+        border-radius: 100px;
+        border: 5px solid white;
+
+        margin: auto;
+        margin-top: 50px;
+
+        line-height: 200px;
+        text-align: center;
+        font-size: 25px;
+
+        position: relative;
+
+        & > .call-branch {
+            .set-dimensions(5px; 200px);
+
+            background-color: white;
+            margin: auto;
+            position: absolute;
+            top: -100px;
+            left: 0px;
+            right: 0px;
+            z-index: -1;
+        }
+    }
+}
+
+.client-notes {
+    .widget;
+    .set-dimensions(300px, 100%);
+
+    position: fixed;
+    margin: 0;
+    top: 0;
+    right: 0;
+
+    & > .client-note {
+        .set-dimensions(calc(100% - 10px));
+
+        padding: 10px;
+        margin: 10px;
+        font-size: 15px;
+        white-space: pre-wrap;
+        height: auto;
+
+        border-bottom: 1px solid @belize-hole;
+    }
+}
+
+.client-block-path, .client-notes {
+    & > .header {
+        .set-dimensions(100%, 100px);
+
+        background-color: @belize-hole;
+
+        line-height: 100px;
+        text-align: center;
+        font-size: 25px;
+    }
+}
+
+.client-control-panel {
+    // .widget;
+    .set-dimensions(1250px, 650px);
+
+    margin: auto;
+    margin-top: 25px;
+    position: relative;
+
+    & > .client-control-panel-widget {
+        // some widget styles
+        .box-shadow();
+        background-color: @wet-asphalt;
+
+        .set-dimensions(612.5px, 312.5px);
+
+        padding: 25px;
+        position: absolute;
+
+        &:nth-child(2) {
+            .set-dimensions(612.5px, 650px);
+            
+            right: 0;
+        }
+
+        &:nth-child(3) {
+            bottom: 0;
+        }
+    }
+}

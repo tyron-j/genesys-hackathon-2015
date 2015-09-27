@@ -1,12 +1,12 @@
 angular.module('myApp.controllers').controller('ClientCtrl', [
 	'$scope',
 	'socketSvc',
-
-	function ($scope, socketSvc) {
+	'$http',
+	function ($scope, socketSvc, $http) {
 		console.log("ClientCtrl loaded");
 
-		function makeid(size, length)
-		{
+		// Helper functions
+		function makeid(size, length) {
 			var texts = [];
 			var text = "";
 			var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -19,10 +19,31 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			}
 			return texts;
 		}
+		function shuffle(array) {
+			var currentIndex = array.length, temporaryValue, randomIndex ;
 
+			// While there remain elements to shuffle...
+			while (0 !== currentIndex) {
+
+				// Pick a remaining element...
+				randomIndex = Math.floor(Math.random() * currentIndex);
+				currentIndex -= 1;
+
+				// And swap it with the current element.
+				temporaryValue = array[currentIndex];
+				array[currentIndex] = array[randomIndex];
+				array[randomIndex] = temporaryValue;
+			}
+
+			return array;
+		}
+
+		// Fake data
 		var fakenames = ["Tyron", "James", "Jiang", "Chuang", "Cathy", "Abigail", "Bob"];
 
 		var socket = socketSvc.socket;
+
+		socket.emit('agentLogin', {name: "Tyron Jung", number: "+12269299042"});
 
 		$scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
 		$scope.series = ['Series A', 'Series B'];
@@ -35,8 +56,8 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 		$scope.avg_duration = "20 min 29 s";
 
 		$scope.firstname = "Tyron";
-		console.log($scope.firstname);
 		$scope.lastname = "Jiang";
+		$scope.number = "15197215399";
 		$scope.location = "Toronto, Canada";
 
 		$scope.callList = [
@@ -79,6 +100,20 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			$scope.notes = matchedCalls[0].notes;
 		}
 
+		$scope.sendSMS = function() {
+			var req = {
+				method: 'POST',
+				url: "http://69.204.255.92/api/text/send?to=" + $scope.number + "&msg=" + $scope.msg,
+				data: { }
+			}
+			$http(req).
+				then(function(response) {
+					console.log(response);
+				}, function(err) {
+					console.log(err);
+				});
+		}
+
 
 		// socket logic
 		socket.on('socketConnection', function (res) {
@@ -94,15 +129,21 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			$scope.number = user.number;
 			$scope.location = user.location;
 			$scope.callList = [];
+			$scope.paths = [];
 			user.calls.forEach(function(call, i) {
 				$scope.callList.push({
 					"id" : i,
-					"agent": fakenames[i],
+					"agent": shuffle(fakenames)[i],
 					"notes": makeid(3, 123)
-				})
-			})
+				});
+			});
 
-			//$scope.apply();
+			/*$scope.mostRecentPath = user.calls.sort(function(call1, call2) {
+				if (call1.timestamp > call2.timestamp) return 1;
+				if (call1.timestamp < call2.timestamp) return -1;
+				return 0;
+			})
+*/
 		});
 	}
 ]);
