@@ -41,8 +41,8 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			console.log(res.msg);
 		});
 
-		/*socket.on('clientChange', function (res) {
-			console.log(res);
-		});*/
+		socket.on('clientChange', function (res) {
+			// change $scope variables according to res object
+		});
 	}
 ]);
