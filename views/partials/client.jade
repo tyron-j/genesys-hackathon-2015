@@ -43,7 +43,7 @@
 .client-block-path
 	.header
 		| Recent Call Path
-	.call-block(ng-repeat='block in ["I\'m", "So", "Fancy"]')
+	.call-block(ng-repeat='block in paths')
 		.call-branch(ng-if='$index != 0')
 		| {{ block }}
 
@@ -73,5 +73,5 @@
 		textarea#message-to-client(ng-model="message")
 		.send-message-button(ng-click="sendSMS()")
 			| Send Message
-		.send-voice-mail-button(ng-click="")
+		.send-voice-mail-button(ng-click="sendVoiceMessage()")
 			| Send Voice Mail
