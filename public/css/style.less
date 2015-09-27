@@ -176,6 +176,23 @@ body {
 
         white-space: pre-wrap;
     }
+
+    & > .logo {
+        .set-dimensions(500px, 50px);
+
+        position: absolute;
+        text-align: center;
+        font-size: 25px;
+        line-height: 50px;
+
+        right: -450px;
+        top: 0;
+        z-index: -1;
+
+        & > i {
+            font-size: 25px;
+        }
+    }
 }
 
 .client-block-path {
