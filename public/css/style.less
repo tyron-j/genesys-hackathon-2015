@@ -257,5 +257,22 @@ body {
         &:nth-child(3) {
             bottom: 0;
         }
+
+        &:nth-child(2), &:nth-child(3) {
+            padding-top: 100px;
+
+            & > .header {
+                .set-dimensions(100%, 75px);
+
+                background-color: @belize-hole;
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                line-height: 75px;
+                text-align: center;
+                font-size: 25px;
+            }
+        }
     }
 }

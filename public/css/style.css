@@ -152,3 +152,19 @@ body {
 .client-control-panel > .client-control-panel-widget:nth-child(3) {
   bottom: 0;
 }
+.client-control-panel > .client-control-panel-widget:nth-child(2),
+.client-control-panel > .client-control-panel-widget:nth-child(3) {
+  padding-top: 100px;
+}
+.client-control-panel > .client-control-panel-widget:nth-child(2) > .header,
+.client-control-panel > .client-control-panel-widget:nth-child(3) > .header {
+  width: 100%;
+  height: 75px;
+  background-color: #2980b9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 75px;
+  text-align: center;
+  font-size: 25px;
+}
