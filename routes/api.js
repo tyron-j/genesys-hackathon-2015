@@ -31,6 +31,8 @@ users.insert({
 	name:'Barack Obama',
 	calls: [
 		{
+			agent: "Tyron Jung",
+			agentduration: Math.floor(Math.random() * (30000-15000) + 15000),
 			path: "AccountChanges, Cancellations"
 		}	
 	]		
