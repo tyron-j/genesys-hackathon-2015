@@ -6,8 +6,12 @@ var app = require('./app.js');
 
 // set up socket
 var server = http.createServer(app);
+var socket;
 
-var socket = io(server).on('connection', function (_socket) {
+io(server).on('connection', function (_socket) {
+	// expose client socket
+	socket = _socket;
+
 	console.log("Connected to client socket");
 
 	// test
