@@ -1,0 +1,26 @@
+{
+	"name": "genesys-hackathon-2015",
+	"description": "Genesys Hackathon 2015",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"body-parser": "~1.12.x",
+		"express": "~4.12.x",
+		"jade": "~1.9.x",
+		"mongoose": "~4.0.x"
+	},
+	"engines": {
+		"node": "~0.12.x"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/tyron-j/genesys-hackathon-2015"
+	},
+	"keywords": [
+		"genesys",
+		"hackathon",
+		"2015"
+	]
+}
