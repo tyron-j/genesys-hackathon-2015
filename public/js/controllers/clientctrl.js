@@ -117,13 +117,13 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			toastr.error('asdfasdf', 'aklsfjsldf');
 			var req = {
 				method: 'POST',
-				url: "http://69.204.255.92/api/text/send?to=" + $scope.number + "&msg=" + $scope.msg,
+				url: "http://69.204.255.92/api/text/send?to=" + $scope.number + "&message=" + $scope.msg,
 				data: { }
 			}
 			$http(req).
 				then(function(response) {
 					console.log(response);
-					$scope.message = "";
+					$scope.msg = "";
 				}, function(err) {
 					console.log(err);
 				});
@@ -132,7 +132,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 		$scope.sendVoiceMessage = function() {
 			var req = {
 				method: 'GET',
-				url: "/api/leavemessage?number="+$scope.number+"&message="+$scope.message,
+				url: "/api/leavemessage?number="+$scope.number+"&message="+$scope.msg,
 				data: {
 				}
 			}
@@ -142,7 +142,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 					if (response.status == "failed") {
 						alert(response.reason);
 					} else {
-						$scope.message = "";
+						$scope.msg = "";
 					}
 				}, function(err) {
 					console.log(err);
