@@ -27,31 +27,31 @@ users.insert({
 			agent: "Chuang Li",
 			agentduration: Math.floor(Math.random() * (30000-15000) + 15000),
 			agentendtime: 1443372037263 + Math.floor(Math.random() * (30000-15000) + 15000),
-			path: "AccountChanges,Changes,Personal"
+			path: "Account,Changes,Personal"
 		},
 		{
 			agent: "Chuang Li",
 			agentduration: Math.floor(Math.random() * (30000-15000) + 15000),
 			agentendtime: 1443372037263 + Math.floor(Math.random() * (30000-15000) + 15000),
-			path: "AccountChanges,Changes,Personal"
+			path: "Account,Changes,Personal"
 		},
 		{
 			agent: "Chuang Li",
 			agentduration: Math.floor(Math.random() * (30000-15000) + 15000),
 			agentendtime: 1443372037263 + Math.floor(Math.random() * (30000-15000) + 15000),
-			path: "AccountChanges,Changes,Personal"
+			path: "Account,Changes,Personal"
 		},
 		{
 			agent: "Chuang Li",
 			agentduration: Math.floor(Math.random() * (30000-15000) + 15000),
 			agentendtime: 1443372037263 + Math.floor(Math.random() * (30000-15000) + 15000),
-			path: "AccountChanges,Changes,Personal"
+			path: "Account,Changes,Personal"
 		},
 		{
 			agent: "Chuang Li",
 			agentduration: Math.floor(Math.random() * (30000-15000) + 15000),
 			agentendtime: 1443372037263 + Math.floor(Math.random() * (30000-15000) + 15000),
-			path: "AccountChanges,Changes,Personal"
+			path: "Account,Changes,Personal"
 		}
 	]
 });
@@ -66,49 +66,49 @@ users.insert({
 			agent: "Tyron Jung",
 			agentduration: Math.floor(Math.random() * (30000-15000) + 15000),
 			agentendtime: 1443372037263 + Math.floor(Math.random() * (30000-15000) + 15000),
-			path: "AccountChanges, Cancellations"
+			path: "Account, Cancellations"
 		},	
 		{
 			agent: "Tyron Jung",
 			agentduration: Math.floor(Math.random() * (30000-15000) + 15000),
 			agentendtime: 1443372037263 + Math.floor(Math.random() * (30000-15000) + 15000),
-			path: "AccountChanges, Cancellations"
+			path: "Account, Cancellations"
 		},
 		{
 			agent: "Tyron Jung",
 			agentduration: Math.floor(Math.random() * (30000-15000) + 15000),
 			agentendtime: 1443372037263 + Math.floor(Math.random() * (30000-15000) + 15000),
-			path: "AccountChanges, Cancellations"
+			path: "Account, Cancellations"
 		},
 		{
 			agent: "Tyron Jung",
 			agentduration: Math.floor(Math.random() * (30000-15000) + 15000),
 			agentendtime: 1443372037263 + Math.floor(Math.random() * (30000-15000) + 15000),
-			path: "AccountChanges, Cancellations"
+			path: "Account, Cancellations"
 		},	
 		{
 			agent: "Tyron Jung",
 			agentduration: Math.floor(Math.random() * (30000-15000) + 15000),
 			agentendtime: 1443372037263 + Math.floor(Math.random() * (30000-15000) + 15000),
-			path: "AccountChanges, Cancellations"
+			path: "Account, Cancellations"
 		},	
 		{
 			agent: "Tyron Jung",
 			agentduration: Math.floor(Math.random() * (30000-15000) + 15000),
 			agentendtime: 1443372037263 + Math.floor(Math.random() * (30000-15000) + 15000),
-			path: "AccountChanges, Cancellations"
+			path: "Account, Cancellations"
 		},	
 		{
 			agent: "Tyron Jung",
 			agentduration: Math.floor(Math.random() * (30000-15000) + 15000),
 			agentendtime: 1443372037263 + Math.floor(Math.random() * (30000-15000) + 15000),
-			path: "AccountChanges, Cancellations"
+			path: "Account, Cancellations"
 		},	
 		{
 			agent: "Tyron Jung",
 			agentduration: Math.floor(Math.random() * (30000-15000) + 15000),
 			agentendtime: 1443372037263 + Math.floor(Math.random() * (30000-15000) + 15000),
-			path: "AccountChanges, Cancellations"
+			path: "Account, Cancellations"
 		}			
 	]		
 });
