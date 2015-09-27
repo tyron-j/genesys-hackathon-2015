@@ -207,8 +207,8 @@ var api = module.exports = {
 		if (resultSet.length == 0){
 		
 		} else {
-			var messages = users.find({number: number})[0].messages;
-			messages = [];
+			var user = users.find({number: number})[0];
+			user.messages = [];
 			console.log(users.find({number: number})[0]);
 			res.sendStatus(200);
 		}
