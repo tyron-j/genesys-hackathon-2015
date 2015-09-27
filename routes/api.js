@@ -195,8 +195,7 @@ var api = module.exports = {
 		
 		} else {
 			var messages = users.find({number: number})[0].messages;
-			console.log()
-			console.log(lastCall);
+			console.log(messages);
 			res.json({messages: messages});
 		}
 	},
