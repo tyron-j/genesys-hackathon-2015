@@ -1,2 +1,23 @@
-div
-	| Hello World!
+.content-wrapper
+	.columns.three &nbsp;
+		.row.profile &nbsp;
+			p First Name: {{firstname}}
+			p Last Name: {{lastname}}
+			p Location: {{location}}
+		.row.call-duration &nbsp;
+		.row.message &nbsp;
+			p Message for <strong>{{firstname}} {{lastname}}</strong>
+			hr
+			textarea#message
+			button.button-primary Submit
+
+	.columns.three &nbsp;
+		.row.call-list &nbsp;
+			ul(ng-repeat="call in callList")
+				li
+					.call {{call.id}}
+
+	.columns.six &nbsp;
+		.row.most-recent
+		.row.most-frequent
+		.row.notes
