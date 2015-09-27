@@ -10,7 +10,7 @@ var views = require('./routes/views.js');
 
 var app = express();
 
-app.set('port', prcoess.env.PORT || 9000);
+app.set('port', process.env.PORT || 9000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
