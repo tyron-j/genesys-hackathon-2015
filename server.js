@@ -2,13 +2,15 @@
 
 var express    = require('express');
 var bodyParser = require('body-parser');
+var socket     = require('socket.io');
 
-// var api = require('./routes/api');
+var api = require('./routes/api');
 var views = require('./routes/views.js');
 
 // app
 
 var app = express();
+var io  = socket();
 
 app.set('port', process.env.PORT || 9000);
 app.set('views', __dirname + '/views');
