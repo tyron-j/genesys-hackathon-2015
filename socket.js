@@ -14,7 +14,7 @@ var socket = io(server).on('connection', function (_socket) {
 	setTimeout(function () {
 		console.log("Broadcasting...");
 
-		_socket.broadcast.emit('clientChange', {
+		_socket.emit('clientChange', {
 			hello: "world!"
 		});
 	}, 3000);
