@@ -42,6 +42,8 @@ socket.on('connection', function (_socket) {
 // api logic
 var api = module.exports = {
 	updateProfile: function (req, res) {
+		console.log(parseInt(req.query.menustarttime));
+		console.log(parseInt(req.query.menuendtime));
 		var menuDuration = parseInt(req.query.menuendtime) - parseInt(req.query.menustarttime);
 		var agentDuration = parseInt(req.query.agentendtime) - parseInt(req.query.menuendtime);
 		
