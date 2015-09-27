@@ -1,23 +1,30 @@
 .content-wrapper
-	.columns.three &nbsp;
-		.row.profile &nbsp;
+	.columns.three
+		.row.profile
+			label Client Profile
 			p First Name: {{firstname}}
 			p Last Name: {{lastname}}
 			p Location: {{location}}
-		.row.call-duration &nbsp;
-		.row.message &nbsp;
+		.row.call-duration
+			label Average call duration: {{call_duration}}
+			canvas#call-duration-graph.chart.chart-bar(chart-data="data" chart-labels="labels")
+		.row.message
 			p Message for <strong>{{firstname}} {{lastname}}</strong>
 			hr
 			textarea#message
 			button.button-primary Submit
 
-	.columns.three &nbsp;
+	.columns.three
 		.row.call-list &nbsp;
 			ul(ng-repeat="call in callList")
-				li
-					.call {{call.id}}
+				li(ng-click="showNotes(call.id)")
+					.call {{call.id}} {{call.agent}}
 
-	.columns.six &nbsp;
+	.columns.six
 		.row.most-recent
+			label Most Recent Call
 		.row.most-frequent
+			label Most Frequent Call
 		.row.notes
+			ui(ng-repeat="note in notes")
+				li {{note}}
