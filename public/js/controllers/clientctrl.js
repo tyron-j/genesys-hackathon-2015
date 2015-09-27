@@ -5,6 +5,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 	function ($scope, socketSvc, $http) {
 		console.log("ClientCtrl loaded");
 
+		$scope.users = [];
 		// Helper functions
 		function makeid(size, length) {
 			var texts = [];
@@ -62,7 +63,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 
 		$scope.data = [[65, 59, 80, 81]];
 
-		$scope.avg_duration = "20 min 29 s";
+		$scope.avg_duration = "60";
 
 		$scope.firstname = "Tyron";
 		$scope.lastname = "Jiang";
@@ -141,6 +142,21 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 					console.log(err);
 				});
 		};
+
+		$scope.leaveNote = function() {
+			var req = {
+				method: 'GET',
+				url: "/api/leavemessage?number="+$scope.number+"&message="+$scope.note,
+				data: {}
+			}
+			$http(req)
+				.then(function(response) {
+					console.log(response);
+					$scope.note = "";
+				}, function(err) {
+					console.log(err);
+				});
+		}
 
 
 		// socket logic
