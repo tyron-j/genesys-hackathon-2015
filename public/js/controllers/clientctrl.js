@@ -5,6 +5,8 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 	function ($scope, socketSvc) {
 		console.log("ClientCtrl loaded");
 
+		var socket = socketSvc.socket;
+
 		$scope.firstname = "Tyron";
 		console.log($scope.firstname);
 		$scope.lastname = "Jiang";
@@ -34,8 +36,13 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 		];
 		$scope.sortOrder = "id";
 
-		socketSvc.socket.on('clientChange', function (res) {
-			console.log(res);
+		// socket logic
+		socket.on('socketConnection', function (res) {
+			console.log(res.msg);
 		});
+
+		/*socket.on('clientChange', function (res) {
+			console.log(res);
+		});*/
 	}
 ]);

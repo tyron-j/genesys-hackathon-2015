@@ -8,16 +8,16 @@ var app = require('./app.js');
 var server = http.createServer(app);
 
 var socket = io(server).on('connection', function (_socket) {
-	console.log("Client connected");
+	console.log("Connected to client socket");
 
 	// test
-	setTimeout(function () {
-		console.log("Broadcasting...");
+	_socket.emit('socketConnection', {
+		msg: "Connected to server socket"
+	});
 
-		_socket.emit('clientChange', {
-			hello: "world!"
-		});
-	}, 3000);
+	/*_socket.emit('clientChange', {
+		hello: "world!"
+	});*/
 
 	_socket.on('disconnect', function () {
 		console.log("Client disconnected");
