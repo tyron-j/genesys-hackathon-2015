@@ -43,15 +43,17 @@
 .client-block-path
 	.header
 		| Recent Call Path
-	.call-block(ng-repeat='block in ["I\'m", "So", "Fancy"]')
-		.call-branch(ng-if='$index != 0')
-		| {{ block }}
+	.call-block-container
+		.call-block(ng-repeat='block in paths')
+			.call-branch(ng-if='$index != 0')
+			| {{ block }}
 
-.client-notes
+.call-queue
 	.header
 		| Call Queue
-	.client-note(ng-repeat='note in ["Chakrit Nimmanant", "Rakesh Tailor", "Michael Aronzon", "Leon Vymenets", "Jennifer Li"]')
-		| {{ note }}
+	.call-container
+		.call(ng-repeat='caller in ["Chakrit Nimmanant", "Rakesh Tailor", "Michael Aronzon", "Leon Vymenets", "Jennifer Li", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]')
+			| {{ caller }}
 
 .client-control-panel
 	.client-control-panel-widget
@@ -61,12 +63,17 @@
 			| Notes About Client
 		.note-container
 			//- repeat notes
-			.note(ng-repeat="")
+			.note(ng-repeat="note in [1, 2, 3, 4, 5, 6, 7, 8]")
+				| {{ note }}
+		.note-writer
+			textarea
+			.add-note-button
+				| Add Note
 	.client-control-panel-widget
 		.header
 			| Follow-Up Message to Client
 		textarea#message-to-client(ng-model="message")
 		.send-message-button(ng-click="sendSMS()")
 			| Send Message
-		.send-voice-mail-button(ng-click="")
+		.send-voice-mail-button(ng-click="sendVoiceMessage()")
 			| Send Voice Mail

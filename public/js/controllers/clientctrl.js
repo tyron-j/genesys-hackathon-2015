@@ -101,6 +101,8 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 		];
 		$scope.sortOrder = "id";
 
+		$scope.paths = "Help, Me, Please, Man".split(',');
+
 		$scope.notes = $scope.callList[0].notes;
 		$scope.showNotes = function(id) {
 			var matchedCalls = $scope.callList.filter(function(call) {
@@ -118,10 +120,27 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			$http(req).
 				then(function(response) {
 					console.log(response);
+					$scope.message = "";
 				}, function(err) {
 					console.log(err);
 				});
-		}
+		};
+
+		$scope.sendVoiceMessage = function() {
+			var req = {
+				method: 'GET',
+				url: "/api/leavemessage?number="+$scope.number+"&message="+$scope.message,
+				data: {
+				}
+			}
+			$http(req)
+				.then(function(response) {
+					console.log(response);
+					$scope.message = "";
+				}, function(err) {
+					console.log(err);
+				});
+		};
 
 
 		// socket logic
@@ -142,7 +161,6 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 
 			// Initiate call list
 			$scope.callList = [];
-			$scope.paths = [];
 			user.calls.forEach(function(call, i) {
 				$scope.callList.push({
 					"id" : i,
@@ -159,6 +177,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 					if (call1.agentendtime > call2.agentendtime) return -1;
 					return 0;
 			})[0];
+			$scope.paths = $scope.mostRecentCall.path.split(',');
 
 			// initiate call duration data
 			$scope.labels = [];
