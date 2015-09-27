@@ -1,9 +1,10 @@
 // deps
 var app    = require('../app.js');
 var socket = require('../socket.js').socket;
+var views = require('./views.js');
 var loki = require("lokijs");
 
-module.exports = {
+var api = module.exports = {
 	getUser: function (req, res) {
 		console.log("path: " + req.query.path);
 		res.render(req.query.path);
@@ -12,7 +13,7 @@ module.exports = {
 };
 
 // routes
-app.get('/api/user', getUser);
+app.get('/api/user', api.getUser);
 
 var db = new loki('loki.json');
 
