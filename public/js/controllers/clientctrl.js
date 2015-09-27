@@ -131,7 +131,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 		$scope.sendVoiceMessage = function() {
 			var req = {
 				method: 'GET',
-				url: "/api/leavemessage?number="+$scope.number+"&message="+$scope.msg,
+				url: "/api/leaveMessage?number="+$scope.number+"&message="+$scope.msg,
 				data: {
 				}
 			}
@@ -149,9 +149,9 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 		};
 
 		$scope.leaveNote = function() {
-			var req = {
+			var req = { 
 				method: 'GET',
-				url: "/api/leavemessage?number="+$scope.number+"&note="+$scope.newnote,
+				url: "/api/leaveNote?number="+$scope.number+"&note="+$scope.newnote,
 				data: {}
 			}
 			$http(req)
@@ -213,7 +213,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			});
 			$scope.data.push(durations);
 			$scope.series = ['Call Duration'];
-			$scope.avg_duration = durations_total/user.calls.length;
+			$scope.avg_duration = Math.round(durations_total/user.calls.length);
 			$scope.notes = user.notes;
 
 		});
