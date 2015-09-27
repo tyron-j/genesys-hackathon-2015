@@ -42,7 +42,9 @@ socket.on('connection', function (_socket) {
 // api logic
 var api = module.exports = {
 	updateProfile: function (req, res) {
-		console.log("maxTime: " + req.query.duration);
+		var menuDuration = req.query.menuendtime - req.query.menustarttime;
+		var agentDuration = req.query.agentendtime - req.query.menuendtime;
+		
 		var number = req.query.number.replace(' ', '+');
 		console.log("path: " + req.query.path, "number: " + number);
 		var resultSet = users.find({number: number});
@@ -51,7 +53,10 @@ var api = module.exports = {
 		} else {
 			var user = resultSet[0];
 			console.log(user);
-			user.calls.push({path: req.query.path});
+			user.calls.push({
+				menuduration: menuDuration,
+				agentduration: agentDuration,
+				path: req.query.path});
 			console.log(users.find({number: number})[0]);
 		}
 		res.sendStatus(200);
