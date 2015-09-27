@@ -77,7 +77,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 				"agent" : "Abigail",
 				"duration" : 20000,
 				"timestamp" : "saturday",
-				"notes" : ["[Call 1] This customer is awesome", "[Call 2] Never mind she's terrible"]
+				"notes" : ["[Call 1] This customer is awesome", "[Call 2] Never mind s\	he's terrible"]
 			},
 			{
 				"id": 2,
@@ -138,7 +138,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			$http(req)
 				.then(function(response) {
 					console.log(response);
-					if (response.status == "failed") {
+					if (response.object.status == "failed") {
 						alert(response.reason);
 					} else {
 						$scope.msg = "";
