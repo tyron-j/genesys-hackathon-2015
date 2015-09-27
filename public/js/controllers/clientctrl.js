@@ -77,7 +77,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			$scope.paths = user.paths;
 			$scope.firstname = user.name.split(' ')[0];
 			$scope.firstname = user.name.split(' ')[1];
-			$scope.apply();
+			//$scope.apply();
 		});
 	}
 ]);
