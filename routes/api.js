@@ -57,7 +57,7 @@ var api = module.exports = {
 			var user = resultSet[0];
 			console.log(user);
 			user.calls.push({
-				menuduration: req.query.menuduration,
+				menuduration: parseInt(req.query.menuduration),
 				agentduration: agentDuration,
 				agentendtime: parseInt(req.query.menuendtime) + agentDuration,
 				path: req.query.path});
