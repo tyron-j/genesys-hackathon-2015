@@ -5,6 +5,23 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 	function ($scope, socketSvc) {
 		console.log("ClientCtrl loaded");
 
+		function makeid(size, length)
+		{
+			var texts = [];
+			var text = "";
+			var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+			for (var j=0; j < size; j++) {
+				for( var i=0; i < length; i++ ) {
+					text += possible.charAt(Math.floor(Math.random() * possible.length));
+				}
+				texts.push(text);
+				text = "";
+			}
+			return texts;
+		}
+
+		var fakenames = ["Tyron", "James", "Jiang", "Chuang", "Cathy", "Abigail", "Bob"];
+
 		var socket = socketSvc.socket;
 
 		$scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
@@ -72,11 +89,19 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			console.log(res);
 			var user = res;
 			$scope.name = user.name;
+			$scope.firstname = user.name.split(' ')[0];
+			$scope.lastname = user.name.split(' ')[1];
 			$scope.number = user.number;
 			$scope.location = user.location;
-			$scope.paths = user.paths;
-			$scope.firstname = user.name.split(' ')[0];
-			$scope.firstname = user.name.split(' ')[1];
+			$scope.callList = [];
+			user.calls.forEach(function(call, i) {
+				$scope.callList.push({
+					"id" : i,
+					"agent": fakenames[i],
+					"notes": makeid(3, 123)
+				})
+			})
+
 			//$scope.apply();
 		});
 	}
