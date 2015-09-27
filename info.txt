@@ -1,0 +1,16 @@
+login: team16
+pw: abigail
+number: 18552118905
+
+assigning variables uses JavaScript
+
+Ideas:
+- Personalized customer service experience
+	- Call about a problem
+	- Connect to an agent
+	- Based on input, store user information in database (including current agent info)
+
+	- If user calls help center again, fetch information from database
+	- Ask if user wants to continue talking to the same agent about the same issue, put user in priority queue for agent
+	- When agent receives call from user, automatically update the page with socket.io displaying user information and contents of last call
+	- Continue conversation, and update the information in the database (in case user calls back again)
