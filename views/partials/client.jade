@@ -1,34 +1,60 @@
-.content-wrapper
-	.columns.three
-		.row.profile
-			label Client Profile
-			p First Name: {{firstname}}
-			p Last Name: {{lastname}}
-			p Location: {{location}}
-		.row.call-duration
-			label Average call duration: {{call_duration}}
-			canvas#call-duration-graph.chart.chart-bar(chart-data="data" chart-labels="labels")
-		.row.message
-			p Message for <strong>{{firstname}} {{lastname}}</strong>
-			textarea(style="height:20%")#message.center
-			button.button-primary Submit
+//- .content-wrapper
+//- 	.columns.three
+//- 		.row.profile
+//- 			label Client Profile
+//- 			p First Name: {{firstname}}
+//- 			p Last Name: {{lastname}}
+//- 			p Location: {{location}}
+//- 		.row.call-duration
+//- 			label Average call duration: {{call_duration}}
+//- 			canvas#call-duration-graph.chart.chart-bar(chart-data="data" chart-labels="labels")
+//- 		.row.message
+//- 			p Message for <strong>{{firstname}} {{lastname}}</strong>
+//- 			textarea(style="height:20%")#message.center
+//- 			button.button-primary Submit
 
-	.columns.three
-		.row.call-list
-			label Call List
-			hr
-			ul(ng-repeat="call in callList")
-				li(ng-click="showNotes(call.id)")
-					.call {{call.id}} {{call.agent}}
+//- 	.columns.three
+//- 		.row.call-list
+//- 			label Call List
+//- 			hr
+//- 			ul(ng-repeat="call in callList")
+//- 				li(ng-click="showNotes(call.id)")
+//- 					.call {{call.id}} {{call.agent}}
 
-	.columns.six
-		.row.most-recent
-			label Most Recent Call
-			hr
-		.row.most-frequent
-			label Most Frequent Call
-			hr
-		.row.notes
-			label Notes
-			ui(ng-repeat="note in notes")
-				li {{note}}
+//- 	.columns.six
+//- 		.row.most-recent
+//- 			label Most Recent Call
+//- 			hr
+//- 		.row.most-frequent
+//- 			label Most Frequent Call
+//- 			hr
+//- 		.row.notes
+//- 			label Notes
+//- 			ui(ng-repeat="note in notes")
+//- 				li {{note}}
+
+.client-profile
+	.client-picture
+	.client-name
+		| {{ firstname + ' ' + lastname }}
+	.client-location
+		| {{ location }}
+
+.client-block-path
+	.header
+		| Call Path (Most Recent)
+	.call-block(ng-repeat='block in ["I\'m", "So", "Fancy"]')
+		.call-branch(ng-if='$index != 0')
+		| {{ block }}
+
+.client-notes
+	.header
+		| Agent Notes
+	.client-note(ng-repeat='note in ["I like this guy", "I hate this guy", "I love this guy"]')
+		| {{ note }}
+
+.client-control-panel
+	.client-control-panel-widget
+		canvas#call-duration-graph.chart.chart-bar(chart-data="data" chart-labels="labels")
+	.client-control-panel-widget
+	.client-control-panel-widget
