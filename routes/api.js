@@ -208,7 +208,8 @@ var api = module.exports = {
 		
 		} else {
 			var messages = users.find({number: number})[0].messages;
-			var messages = [];
+			messages = [];
+			console.log(users.find({number: number})[0]);
 			res.sendStatus(200);
 		}
 	}
