@@ -47,6 +47,7 @@ var api = module.exports = {
 		var menuDuration = parseInt(req.query.menuendtime) - parseInt(req.query.menustarttime);
 		var agentDuration = parseInt(req.query.agentendtime) - parseInt(req.query.menuendtime);
 		*/
+		var agentDuration = Math.floor(Math.random() * (30000-15000) + 15000);
 		var number = req.query.number.replace(' ', '+');
 		console.log("path: " + req.query.path, "number: " + number);
 		var resultSet = users.find({number: number});
@@ -57,7 +58,8 @@ var api = module.exports = {
 			console.log(user);
 			user.calls.push({
 				menuduration: req.query.menuduration,
-				agentduration: req.query.agentduration,
+				agentduration: agentDuration,
+				agentendtime: parseInt(req.query.menuendtime) + agentDuration,
 				path: req.query.path});
 			console.log(users.find({number: number})[0]);
 		}
