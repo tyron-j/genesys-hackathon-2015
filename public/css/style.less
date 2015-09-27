@@ -291,18 +291,22 @@ body {
                 line-height: 20px;
             }
 
-            & > .send-message-button {
+            & > .send-message-button, & > .send-voice-mail-button {
                 .set-dimensions(250px, 37.5px);
 
                 background-color: @belize-hole;
 
-                right: 25;
-                bottom: 25;
+                right: 25px;
+                bottom: 25px;
                 position: absolute;
 
                 font-size: 20px;
                 line-height: 37.5px;
                 text-align: center;
+            }
+
+            & > .send-voice-mail-button {
+                right: 285px;
             }
         }
 
