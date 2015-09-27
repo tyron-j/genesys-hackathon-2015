@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // routes
 
 app.get('/', views.index);
-app.get('partials/:name', views.partials);
+app.get('/partials/:partial', views.partials);
 
 // startup
 
