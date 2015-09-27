@@ -70,6 +70,13 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 
 		socket.on('clientChange', function (res) {
 			console.log(res);
+			var user = res;
+			$scope.name = user.name;
+			$scope.number = user.number;
+			$scope.location = user.location;
+			$scope.paths = user.paths;
+			$scope.firstname = user.name.split(' ')[0];
+			$scope.firstname = user.name.split(' ')[1];
 		});
 	}
 ]);

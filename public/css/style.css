@@ -1,3 +1,25 @@
+hr {
+    margin: 0 0;
+}
+
+.three.columns {
+    width: 24%;
+}
+
+.six.columns {
+    width: 50%;
+}
+
+.column, .columns {
+    margin-left: 1%;
+}
+
+.row {
+    margin-bottom: 2px;
+    border: 1px solid;
+    box-shadow: rgb(136, 136, 136) 1px 1px 1px;
+}
+
 .content-wrapper {
     padding:5px;
 }
@@ -5,7 +27,6 @@
 .profile {
     padding:10px;
     background-color: lightcoral;
-    height: 25%;
 }
 
 .profile p {
@@ -15,13 +36,11 @@
 .call-duration {
     padding:10px;
     background-color: lightcyan;
-    height: 20%;
 }
 
 .message {
+    padding:10px;
     background-color: lightgoldenrodyellow;
-    height: 55%;
-    overflow: scroll;
 }
 
 .call-list ul {
@@ -29,8 +48,8 @@
 }
 
 .call-list {
+    padding:10px;
     background-color: lightgreen;
-    height: 100%;
 }
 
 .call-list li {
@@ -52,5 +71,11 @@
 
 .notes {
     background-color: lightslategrey;
-    height: 33%;
+    height: 30%;
+}
+
+.notes li {
+    list-style-type: none;
+    padding: 10px;
+    margin: 2px;
 }
