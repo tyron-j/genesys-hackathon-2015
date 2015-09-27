@@ -137,7 +137,11 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			$http(req)
 				.then(function(response) {
 					console.log(response);
-					$scope.message = "";
+					if (response.status == "fail") {
+						alert(response.reason);
+					} else {
+						$scope.message = "";
+					}
 				}, function(err) {
 					console.log(err);
 				});
