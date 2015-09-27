@@ -14,7 +14,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 				for( var i=0; i < length; i++ ) {
 					text += possible.charAt(Math.floor(Math.random() * possible.length));
 				}
-				textx.push(text);
+				texts.push(text);
 				text = "";
 			}
 			return texts;
