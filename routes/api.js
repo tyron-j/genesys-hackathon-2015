@@ -8,8 +8,29 @@ var loki = require("lokijs");
 var db = new loki('loki.json');
 var users = db.addCollection('users');
 
-users.insert({number: "+12269899298", location: "Toronto, Ontario", name:'Donald Trump', paths:["TechSupport,TV", "AccountChanges,Changes,Personal"]});
-users.insert({number: "+15197215399", location: "Vancouver, British Columbia", name:'Barack Obama', paths: ["AccountChanges, Cancellations"]});
+users.insert({
+	number: "+12269899298", 
+	location: "Toronto, Ontario", 
+	name:'Donald Trump',
+	calls: [
+		{
+			path: "TechSupport,TV"
+		},
+		{
+			path: "AccountChanges,Changes,Personal"
+		}
+	]
+});
+users.insert({
+	number: "+15197215399", 
+	location: "Vancouver, British Columbia", 
+	name:'Barack Obama',
+	calls: [
+		{
+			path: "AccountChanges, Cancellations"
+		}	
+	]		
+});
 
 // get client socket
 var emit; // emit function
@@ -21,6 +42,7 @@ socket.on('connection', function (_socket) {
 // api logic
 var api = module.exports = {
 	updateProfile: function (req, res) {
+		console.log("maxTime: " + req.query.duration);
 		var number = req.query.number.replace(' ', '+');
 		console.log("path: " + req.query.path, "number: " + number);
 		var resultSet = users.find({number: number});
@@ -29,7 +51,7 @@ var api = module.exports = {
 		} else {
 			var user = resultSet[0];
 			console.log(user);
-			user.paths.push(req.query.path);
+			user.calls.push({path: req.query.path});
 			console.log(users.find({number: number})[0]);
 		}
 		res.sendStatus(200);
