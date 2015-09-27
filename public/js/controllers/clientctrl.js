@@ -138,8 +138,8 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			$http(req)
 				.then(function(response) {
 					console.log(response);
-					if (response.object.status == "failed") {
-						alert(response.reason);
+					if (response.data.status == "failed") {
+						alert(response.data.reason);
 					} else {
 						$scope.msg = "";
 					}
