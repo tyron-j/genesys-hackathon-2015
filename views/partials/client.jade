@@ -42,19 +42,23 @@
 
 .client-block-path
 	.header
-		| Call Path (Most Recent)
+		| Recent Call Path
 	.call-block(ng-repeat='block in ["I\'m", "So", "Fancy"]')
 		.call-branch(ng-if='$index != 0')
 		| {{ block }}
 
 .client-notes
 	.header
-		| Agent Notes
-	.client-note(ng-repeat='note in ["I like this guy", "I hate this guy", "I love this guy"]')
+		| Call Queue
+	.client-note(ng-repeat='note in ["Chakrit Nimmanant", "Rakesh Tailor", "Michael Aronzon", "Leon Vymenets", "Jennifer Li"]')
 		| {{ note }}
 
 .client-control-panel
 	.client-control-panel-widget
 		canvas#call-duration-graph.chart.chart-bar(chart-data="data" chart-labels="labels")
 	.client-control-panel-widget
+		.header
+			| Notes About Client
 	.client-control-panel-widget
+		.header
+			| Follow-Up Message to Client
