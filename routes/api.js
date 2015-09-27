@@ -225,6 +225,7 @@ var api = module.exports = {
 			var user = users.find({number: number})[0];
 			user.notes.push(req.query.note);
 			console.log(users.find({number: number})[0]);
+			res.json({status: "success", reason: "approved"});
 		}
 	}
 };
