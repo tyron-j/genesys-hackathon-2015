@@ -145,7 +145,7 @@ body {
         background-size: contain;
         background-color: @belize-hole;
 
-        border: 15px solid @belize-hole;
+        border: 50px solid @belize-hole;
         display: inline-block;
 
         .set-dimensions(200px);
@@ -187,37 +187,44 @@ body {
     top: 0;
     left: 0;
 
-    & > .call-block {
-        .set-dimensions(200px);
+    & > .call-block-container {
+        .set-dimensions(100%, 100%);
 
-        background-color: @belize-hole;
-        border-radius: 100px;
-        border: 5px solid white;
+        overflow: auto;
+        padding-bottom: 150px;
 
-        margin: auto;
-        margin-top: 50px;
+        & > .call-block {
+            .set-dimensions(150px);
 
-        line-height: 200px;
-        text-align: center;
-        font-size: 25px;
+            background-color: @belize-hole;
+            border-radius: 75px;
+            border: 5px solid white;
 
-        position: relative;
-
-        & > .call-branch {
-            .set-dimensions(5px; 200px);
-
-            background-color: white;
             margin: auto;
-            position: absolute;
-            top: -100px;
-            left: 0px;
-            right: 0px;
-            z-index: -1;
+            margin-top: 50px;
+
+            line-height: 150px;
+            text-align: center;
+            font-size: 25px;
+
+            position: relative;
+
+            & > .call-branch {
+                .set-dimensions(5px; 150px);
+
+                background-color: white;
+                margin: auto;
+                position: absolute;
+                top: -100px;
+                left: 0px;
+                right: 0px;
+                z-index: -1;
+            }
         }
     }
 }
 
-.client-notes {
+.call-queue {
     .widget;
     .set-dimensions(300px, 100%);
 
@@ -226,20 +233,28 @@ body {
     top: 0;
     right: 0;
 
-    & > .client-note {
-        .set-dimensions(calc(100% - 10px));
+    & > .call-container {
+        .set-dimensions(100%, 100%);
 
-        padding: 10px;
-        margin: 10px;
-        font-size: 15px;
-        white-space: pre-wrap;
-        height: auto;
+        overflow: auto;
+        padding-bottom: 100px;
 
-        border-bottom: 1px solid @belize-hole;
+
+        & > .call {
+            .set-dimensions(calc(100% - 10px));
+
+            padding: 10px;
+            margin: 10px;
+            font-size: 15px;
+            white-space: pre-wrap;
+            height: auto;
+
+            border-bottom: 1px solid @belize-hole;
+        }
     }
 }
 
-.client-block-path, .client-notes {
+.client-block-path, .call-queue {
     & > .header {
         .set-dimensions(100%, 100px);
 
