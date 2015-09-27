@@ -190,6 +190,11 @@ body {
   line-height: 37.5px;
   text-align: center;
 }
+
+.send-message-button:hover {
+  cursor : hand;
+}
+
 .client-control-panel > .client-control-panel-widget:nth-child(2),
 .client-control-panel > .client-control-panel-widget:nth-child(3) {
   padding-top: 100px;

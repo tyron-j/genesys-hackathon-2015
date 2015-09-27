@@ -62,6 +62,6 @@
 	.client-control-panel-widget
 		.header
 			| Follow-Up Message to Client
-		textarea
-		.send-message-button
+		textarea#message-to-client(ng-model="message")
+		.send-message-button(ng-click="sendSMS()")
 			| Send Message
