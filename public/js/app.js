@@ -1,6 +1,8 @@
 angular.module('myApp', [
 	'ngRoute',
 	'chart.js',
+	'ngAnimate',
+	'toastr',
 	'myApp.services',
 	'myApp.controllers'
 ]).config(function ($routeProvider, $locationProvider) {

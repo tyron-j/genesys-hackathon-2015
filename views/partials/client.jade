@@ -65,16 +65,16 @@
 			| Notes About Client
 		.note-container
 			//- repeat notes
-			.note(ng-repeat="note in [1, 2, 3, 4, 5, 6, 7, 8]")
+			.note(ng-repeat="note in notes")
 				| {{ note }}
 		.note-writer
-			textarea
-			.add-note-button
+			textarea(ng-model="newnote")
+			.add-note-button(ng-click="leaveNote()")
 				| Add Note
 	.client-control-panel-widget
 		.header
 			| Follow-Up Message to Client
-		textarea#message-to-client(ng-model="message")
+		textarea#message-to-client(ng-model="msg")
 		.send-message-button(ng-click="sendSMS()")
 			| Send Message
 		.send-voice-mail-button(ng-click="sendVoiceMessage()")
