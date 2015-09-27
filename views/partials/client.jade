@@ -59,6 +59,8 @@
 
 .client-control-panel
 	.client-control-panel-widget
+		.title
+			| Average Call Duration: {{ avg_duration }}
 		canvas#call-duration-graph.chart.chart-bar(chart-data="data" chart-labels="labels")
 	.client-control-panel-widget
 		.header
