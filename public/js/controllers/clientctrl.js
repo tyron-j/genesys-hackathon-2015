@@ -123,11 +123,15 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 		socket.on('clientChange', function (res) {
 			console.log(res);
 			var user = res;
+
+			// Initiate user information
 			$scope.name = user.name;
 			$scope.firstname = user.name.split(' ')[0];
 			$scope.lastname = user.name.split(' ')[1];
 			$scope.number = user.number;
 			$scope.location = user.location;
+
+			// Initiate call list
 			$scope.callList = [];
 			$scope.paths = [];
 			user.calls.forEach(function(call, i) {
@@ -138,12 +142,24 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 				});
 			});
 
-			/*$scope.mostRecentPath = user.calls.sort(function(call1, call2) {
-				if (call1.timestamp > call2.timestamp) return 1;
-				if (call1.timestamp < call2.timestamp) return -1;
-				return 0;
-			})
-*/
+			// find most recent call object
+			$scope.mostRecentCall = user.calls
+				.filter(function(call) {return call.agentendtime;})
+				.sort(function(call1, call2) {
+					if (call1.agentendtime < call2.agentendtime) return 1;
+					if (call1.agentendtime > call2.agentendtime) return -1;
+					return 0;
+			})[0];
+
+			// initiate call duration data
+			$scope.labels = [];
+			$scope.data = [];
+			user.calls.forEach(function(call, i) {
+				$scope.labels.push(call.i);
+				$scope.data.push(call.agentduration/1000);
+			});
+			$scope.series = ['Call Duration'];
+
 		});
 	}
 ]);
