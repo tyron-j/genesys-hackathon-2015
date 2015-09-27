@@ -1,5 +1,5 @@
 angular.module('myApp.controllers').controller('MainCtrl', [
 	function () {
-		console.log("MainCtrl!");
+		console.log("MainCtrl loaded");
 	}
 ]);

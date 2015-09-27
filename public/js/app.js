@@ -1,6 +1,7 @@
 angular.module('myApp', [
 	'ngRoute',
 
+	'myApp.services',
 	'myApp.controllers'
 ]).config(function ($routeProvider, $locationProvider) {
 

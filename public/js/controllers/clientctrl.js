@@ -1,7 +1,9 @@
 angular.module('myApp.controllers').controller('ClientCtrl', [
 	'$scope',
-	function ($scope) {
-		console.log("ClientCtrl!");
+	'socketSvc',
+
+	function ($scope, socketSvc) {
+		console.log("ClientCtrl loaded");
 
 		$scope.firstname = "Tyron";
 		console.log($scope.firstname);
@@ -32,5 +34,6 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 		];
 		$scope.sortOrder = "id";
 
+		// socket logic
 	}
 ]);
