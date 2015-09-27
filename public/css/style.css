@@ -185,6 +185,18 @@ body {
   padding: 25px;
   position: absolute;
 }
+.client-control-panel > .client-control-panel-widget:nth-child(1) > .title {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  line-height: 40px;
+  text-align: center;
+  color: #2980b9;
+  font-size: 20px;
+}
 .client-control-panel > .client-control-panel-widget:nth-child(2) {
   width: 612.5px;
   height: 650px;
