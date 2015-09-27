@@ -164,6 +164,9 @@ body {
   height: 650px;
   right: 0;
 }
+.client-control-panel > .client-control-panel-widget:nth-child(2) > .note-container {
+  margin-top: 75px;
+}
 .client-control-panel > .client-control-panel-widget:nth-child(3) {
   bottom: 0;
 }
@@ -190,6 +193,11 @@ body {
   font-size: 20px;
   line-height: 37.5px;
   text-align: center;
+}
+.client-control-panel > .client-control-panel-widget:nth-child(3) > .send-message-button:hover,
+.client-control-panel > .client-control-panel-widget:nth-child(3) > .send-voice-mail-button:hover {
+  cursor: pointer;
+  background-color: #3498db;
 }
 .client-control-panel > .client-control-panel-widget:nth-child(3) > .send-voice-mail-button {
   right: 285px;
