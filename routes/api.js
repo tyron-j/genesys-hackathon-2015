@@ -6,7 +6,7 @@ var loki = require("lokijs");
 module.exports = {
 	getUser: function (req, res) {
 		console.log("path: " + req.query.path);
-		
+		res.render(req.query.path);
 		res.sendStatus(200);
 	}
 };
