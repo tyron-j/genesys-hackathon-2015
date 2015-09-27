@@ -37,6 +37,18 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 
 			return array;
 		}
+		function timeConverter(UNIX_timestamp){
+			var a = new Date(UNIX_timestamp * 1000);
+			var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+			var year = a.getFullYear();
+			var month = months[a.getMonth()];
+			var date = a.getDate();
+			var hour = a.getHours();
+			var min = a.getMinutes();
+			var sec = a.getSeconds();
+			var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+			return time;
+		}
 
 		// Fake data
 		var fakenames = ["Tyron", "James", "Jiang", "Chuang", "Cathy", "Abigail", "Bob"];
@@ -55,7 +67,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 		$scope.firstname = "Tyron";
 		$scope.lastname = "Jiang";
 		$scope.number = "15197215399";
-		$scope.location = "Toronto, Canada";
+		$scope.location = "Toronto, Canada";l
 
 		$scope.callList = [
 			{
@@ -154,7 +166,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			var durations = [];
 			var durations_total = 0;
 			user.calls.forEach(function(call, i) {
-				$scope.labels.push(call.i);
+				$scope.labels.push(timeConverter(call.agentendtime));
 				durations.push(call.agentduration/1000);
 				durations_total += call.agentduration/1000;
 			});
