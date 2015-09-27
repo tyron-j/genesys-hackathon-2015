@@ -21,3 +21,6 @@ var users = db.addCollection('users');
 users.insert({name:'Sleipnir', legs: 8});
 users.insert({name:'Jormungandr', legs: 0});
 users.insert({name:'Hel', legs: 2});
+
+// refresh fix; DON'T WRITE BEYOND THIS
+app.get('*', views.index);

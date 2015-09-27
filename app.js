@@ -21,6 +21,3 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', views.index);
 app.get('/partials/:partial', views.partials);
-
-// refresh fix
-app.get('*', views.index);
