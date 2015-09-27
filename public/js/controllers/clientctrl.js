@@ -2,9 +2,11 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 	'$scope',
 	'socketSvc',
 	'$http',
-	function ($scope, socketSvc, $http) {
+	'toastr',
+	function ($scope, socketSvc, $http, toastr) {
 		console.log("ClientCtrl loaded");
 
+		$scope.users = [];
 		// Helper functions
 		function makeid(size, length) {
 			var texts = [];
@@ -62,7 +64,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 
 		$scope.data = [[65, 59, 80, 81]];
 
-		$scope.avg_duration = "20 min 29 s";
+		$scope.avg_duration = "60";
 
 		$scope.firstname = "Tyron";
 		$scope.lastname = "Jiang";
@@ -112,6 +114,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 		}
 
 		$scope.sendSMS = function() {
+			toastr.error('asdfasdf', 'aklsfjsldf');
 			var req = {
 				method: 'POST',
 				url: "http://69.204.255.92/api/text/send?to=" + $scope.number + "&msg=" + $scope.msg,
@@ -136,11 +139,31 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			$http(req)
 				.then(function(response) {
 					console.log(response);
-					$scope.message = "";
+					if (response.status == "failed") {
+						alert(response.reason);
+					} else {
+						$scope.message = "";
+					}
 				}, function(err) {
 					console.log(err);
 				});
 		};
+
+		$scope.leaveNote = function() {
+			var req = {
+				method: 'GET',
+				url: "/api/leavemessage?number="+$scope.number+"&message="+$scope.newnote,
+				data: {}
+			}
+			$http(req)
+				.then(function(response) {
+					console.log(response);
+					$scope.notes.push($scope.newnote);
+					$scope.note = "";
+				}, function(err) {
+					console.log(err);
+				});
+		}
 
 
 		// socket logic
@@ -192,7 +215,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			$scope.data.push(durations);
 			$scope.series = ['Call Duration'];
 			$scope.avg_duration = durations_total/user.calls.length;
-
+			$scope.notes = user.notes;
 
 		});
 	}
