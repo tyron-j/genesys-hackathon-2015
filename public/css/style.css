@@ -1,3 +1,7 @@
+hr {
+    margin: 0 0;
+}
+
 .three.columns {
     width: 24%;
 }
@@ -8,6 +12,12 @@
 
 .column, .columns {
     margin-left: 1%;
+}
+
+.row {
+    margin-bottom: 2px;
+    border: 1px solid;
+    box-shadow: rgb(136, 136, 136) 1px 1px 1px;
 }
 
 .content-wrapper {
@@ -31,7 +41,6 @@
 .message {
     padding:10px;
     background-color: lightgoldenrodyellow;
-    overflow: scroll;
 }
 
 .call-list ul {
@@ -62,7 +71,7 @@
 
 .notes {
     background-color: lightslategrey;
-    height: 33%;
+    height: 30%;
 }
 
 .notes li {
