@@ -166,7 +166,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			var durations = [];
 			var durations_total = 0;
 			user.calls.forEach(function(call, i) {
-				$scope.labels.push(timeConverter(call.agentendtime));
+				$scope.labels.push(call.id);
 				durations.push(call.agentduration/1000);
 				durations_total += call.agentduration/1000;
 			});
