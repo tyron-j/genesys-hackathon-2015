@@ -10,3 +10,10 @@ module.exports = {
 
 // routes
 app.get('/api/user', getUser);
+
+// test
+setTimeout(function () {
+	socket.broadcast.emit('clientChange', {
+		hello: "world!"
+	});
+});
