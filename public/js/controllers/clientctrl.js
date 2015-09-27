@@ -42,7 +42,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 		});
 
 		socket.on('clientChange', function (res) {
-			// change $scope variables according to res object
+			console.log(res);
 		});
 	}
 ]);
