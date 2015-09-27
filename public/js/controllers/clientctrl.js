@@ -152,14 +152,14 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 		$scope.leaveNote = function() {
 			var req = {
 				method: 'GET',
-				url: "/api/leavemessage?number="+$scope.number+"&message="+$scope.newnote,
+				url: "/api/leavemessage?number="+$scope.number+"&note="+$scope.newnote,
 				data: {}
 			}
 			$http(req)
 				.then(function(response) {
 					console.log(response);
 					$scope.notes.push($scope.newnote);
-					$scope.note = "";
+					$scope.newnote = "";
 				}, function(err) {
 					console.log(err);
 				});
