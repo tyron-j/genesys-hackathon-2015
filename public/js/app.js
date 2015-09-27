@@ -3,11 +3,11 @@ angular.module('myApp', [
 
 	'myApp.controllers'
 ]).config(function ($routeProvider, $locationProvider) {
-	$routeProvider.when('/home', {
-		templateUrl: 'partials/home',
-		controller: 'HomeCtrl'
+	$routeProvider.when('/client', {
+		templateUrl: 'partials/client',
+		controller: 'ClientCtrl'
 	}).otherwise({
-		redirectTo: '/home'
+		redirectTo: '/client'
 	});
 
 	$locationProvider.html5Mode(true);
