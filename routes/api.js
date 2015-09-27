@@ -42,9 +42,12 @@ socket.on('connection', function (_socket) {
 // api logic
 var api = module.exports = {
 	updateProfile: function (req, res) {
-		var menuDuration = req.query.menuendtime - req.query.menustarttime;
-		var agentDuration = req.query.agentendtime - req.query.menuendtime;
-		
+		/*console.log(parseInt(req.query.menustarttime));
+		console.log(parseInt(req.query.menuendtime));
+		var menuDuration = parseInt(req.query.menuendtime) - parseInt(req.query.menustarttime);
+		var agentDuration = parseInt(req.query.agentendtime) - parseInt(req.query.menuendtime);
+		*/
+		var agentDuration = Math.floor(Math.random() * (30000-15000) + 15000);
 		var number = req.query.number.replace(' ', '+');
 		console.log("path: " + req.query.path, "number: " + number);
 		var resultSet = users.find({number: number});
@@ -54,8 +57,9 @@ var api = module.exports = {
 			var user = resultSet[0];
 			console.log(user);
 			user.calls.push({
-				menuduration: menuDuration,
+				menuduration: parseInt(req.query.menuduration),
 				agentduration: agentDuration,
+				agentendtime: parseInt(req.query.menuendtime) + agentDuration,
 				path: req.query.path});
 			console.log(users.find({number: number})[0]);
 		}
