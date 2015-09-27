@@ -45,7 +45,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-color: #2980b9;
-  border: 15px solid #2980b9;
+  border: 50px solid #2980b9;
   display: inline-block;
   width: 200px;
   height: 200px;
@@ -85,22 +85,28 @@ body {
   top: 0;
   left: 0;
 }
-.client-block-path > .call-block {
-  width: 200px;
-  height: 200px;
+.client-block-path > .call-block-container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding-bottom: 150px;
+}
+.client-block-path > .call-block-container > .call-block {
+  width: 150px;
+  height: 150px;
   background-color: #2980b9;
-  border-radius: 100px;
+  border-radius: 75px;
   border: 5px solid white;
   margin: auto;
   margin-top: 50px;
-  line-height: 200px;
+  line-height: 150px;
   text-align: center;
   font-size: 25px;
   position: relative;
 }
-.client-block-path > .call-block > .call-branch {
+.client-block-path > .call-block-container > .call-block > .call-branch {
   width: 5px;
-  height: 200px;
+  height: 150px;
   background-color: white;
   margin: auto;
   position: absolute;
@@ -109,7 +115,7 @@ body {
   right: 0px;
   z-index: -1;
 }
-.client-notes {
+.call-queue {
   -webkit-box-shadow: 0 0 15px 0 black;
   -moz-box-shadow: 0 0 15px 0 black;
   box-shadow: 0 0 15px 0 black;
@@ -123,7 +129,13 @@ body {
   top: 0;
   right: 0;
 }
-.client-notes > .client-note {
+.call-queue > .call-container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding-bottom: 100px;
+}
+.call-queue > .call-container > .call {
   width: calc(90%);
   height: calc(90%);
   padding: 10px;
@@ -134,7 +146,7 @@ body {
   border-bottom: 1px solid #2980b9;
 }
 .client-block-path > .header,
-.client-notes > .header {
+.call-queue > .header {
   width: 100%;
   height: 100px;
   background-color: #2980b9;
