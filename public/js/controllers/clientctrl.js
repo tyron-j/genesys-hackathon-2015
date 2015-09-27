@@ -118,10 +118,29 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 			$http(req).
 				then(function(response) {
 					console.log(response);
+					$scope.message = "";
 				}, function(err) {
 					console.log(err);
 				});
-		}
+		};
+
+		$scope.sendVoiceMessage = function() {
+			var req = {
+				method: 'POST',
+				url: "/api/leavemessage",
+				data: {
+					name: $scope.number,
+					message: $scope.message
+				}
+			}
+			$http(req)
+				.then(function(response) {
+					console.log(response);
+					$scope.message = "";
+				}, function(err) {
+					console.log(err);
+				});
+		};
 
 
 		// socket logic
