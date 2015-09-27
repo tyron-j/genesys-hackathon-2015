@@ -59,6 +59,14 @@
 	.client-control-panel-widget
 		.header
 			| Notes About Client
+		.note-container
+			//- repeat notes
+			.note(ng-repeat="")
 	.client-control-panel-widget
 		.header
 			| Follow-Up Message to Client
+		textarea#message-to-client(ng-model="message")
+		.send-message-button(ng-click="sendSMS()")
+			| Send Message
+		.send-voice-mail-button(ng-click="")
+			| Send Voice Mail

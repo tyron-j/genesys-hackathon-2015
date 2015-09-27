@@ -83,6 +83,27 @@
 @belize-hole: #2980b9;
 @midnight-blue: #2c3e50;
 @wet-asphalt: #34495e;
+@peter-river: #3498db;
+
+::-webkit-scrollbar {
+    width: 5px;
+
+    &:horizontal {
+        height: 5px;
+    }
+}
+
+::-webkit-scrollbar-track {
+    background-color: fade(black, 25%);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: @belize-hole;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: @belize-hole;
+}
 
 .box-shadow() {
     -webkit-box-shadow: 0 0 15px 0 black;
@@ -252,10 +273,55 @@ body {
             .set-dimensions(612.5px, 650px);
             
             right: 0;
+
+            & > .note-container {
+                margin-top: 75px;
+
+                & > .note {
+                    //
+                }
+            }
         }
 
         &:nth-child(3) {
             bottom: 0;
+
+            & > textarea {
+                .set-dimensions(100%, 150px);
+
+                background-color: fade(black, 25%);
+                border-radius: 0;
+
+                border: none;
+                color: white;
+                font-size: 15px;
+                padding: 25px;
+                resize: none;
+                line-height: 20px;
+            }
+
+            & > .send-message-button, & > .send-voice-mail-button {
+                .set-dimensions(250px, 37.5px);
+
+                background-color: @belize-hole;
+
+                right: 25px;
+                bottom: 25px;
+                position: absolute;
+
+                font-size: 20px;
+                line-height: 37.5px;
+                text-align: center;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: @peter-river;
+                }
+            }
+
+            & > .send-voice-mail-button {
+                right: 285px;
+            }
         }
 
         &:nth-child(2), &:nth-child(3) {
