@@ -15,10 +15,12 @@ users.insert({
 	calls: [
 		{
 			agent: "Chuang Li",
+			agentduration: Math.floor(Math.random() * (30000-15000) + 15000),
 			path: "TechSupport,TV"
 		},
 		{
 			agent: "Chuang Li",
+			agentduration: Math.floor(Math.random() * (30000-15000) + 15000),
 			path: "AccountChanges,Changes,Personal"
 		}
 	]
