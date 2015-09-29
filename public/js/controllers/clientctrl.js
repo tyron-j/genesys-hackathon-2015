@@ -68,7 +68,7 @@ angular.module('myApp.controllers').controller('ClientCtrl', [
 
 		$scope.firstname = "Hilary";
 		$scope.lastname = "Clinton";
-		$scope.number = "+15197215399";
+		$scope.number = "+12269899298";
 		$scope.location = "Toronto, Canada";
 
 		$scope.callList = [
