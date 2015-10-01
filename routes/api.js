@@ -56,7 +56,7 @@ users.insert({
 	]
 });
 users.insert({
-	number: "+12269299042", 
+	number: "+15197215399", 
 	location: "Vancouver, British Columbia", 
 	name:'Barack Obama',
 	messages:[],
